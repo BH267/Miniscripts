@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdlib.h>
 
 void	put_char(int c)
 {
@@ -12,12 +13,13 @@ int	main(int ac, char **av)
 	i = 0;
 	if (ac == 2)
 	{
-		while(av[1][i])
+		while (av[1][i])
 		{
-			if ('a' <= av[1][i] && av[1][i] <= 'z')
-				put_char(av[1][i] - 32);
-			else if ('A' <= av[1][i] && av[1][i] <= 'Z')
+			if ('A' <= av[1][i] && av[1][i] <= 'Z')
+			{
+				put_char('_');
 				put_char(av[1][i] + 32);
+			}
 			else
 				put_char(av[1][i]);
 			i++;
